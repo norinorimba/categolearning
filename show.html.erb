@@ -1,76 +1,29 @@
+<!DOCTYPE html>
 <html lang="ja">
-<!-- 投稿の詳細を見たりコメントできる -->
 <head>
   <meta charset="utf-8">
-  <% @page_title = "top" %>
+  <% page_title = "Home" %>
 </head>
 <body>
-  <div class="header">
-    <h1>Categolearnig&#x270f;<span>～学習動画投稿＆再生サイト～</span></h1>
-  </div>
-
-  <div class="menu">
-<a href="/home/index">ログイン・新規登録</a>
+  <div class="current_user">
+    <%= @user.name %><br>
+    <%= @user.status %><br>
+    <%= link_to 'プロフィール編集',  edit_user_registration_path %><br>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %><br>
+    <%= link_to 'アップロード', new_movie_path %>
     </div>
-
-  <div class="title">
-    <%= @movie.title %>
-  </div>
-
- <div class="movie-show">
-   <div>投稿者：<%= @movie.user.name %><br>投稿時間：<%= @movie.created_at %><br>
-     教科：<%= @movie.subject %>　　単元：<%= @movie.unit %></div>
-   <iframe src="https://www.youtube.com/embed/<%= @movie.link %>" width="560" height="315"></iframe>
-   <span id="movie-<%= @movie.id %>-like">
-     <%= render 'likes/like',movie: @movie, like: @like %>
-   </span>
-   <div><%= @movie.body %></div>
-  </div>
-
-   <div class="comments">
-     <div>コメント</div>
-     <% @comments.each do |c| %>
-     <div>
-       <%= c.user.name %>：<%= c.body %><hr>
-       <% end %>
-     </div>
-     <% if user_signed_in? %>
-     <%= form_for [@movie, @comment] do |f| %>
-     <%= f.text_area :body %>
-     <br>
-     <%= f.submit 'コメントする' %>
-     <% end %>
-     <% end %>
-   </div>
-
-   <%= form_for [@ticket, @review] do |f| %>
-
-     <%= f.hidden_field :ticket_id, value: @ticket.id %>
-    <div class="col-md-6 col-md-offset-3">
-
-            <div class="field" id="star">
-                <%= f.label :star %>
-                <%= f.hidden_field :star, id: :review_star %>
-              </div>
-
-             <%= f.text_area :impression, :class => "form-control", :size => "50x20"  %><br>
-             <%= f.submit "レビュー評価", :class => "btn btn-primary" %>
-
-     </div>
-
-
-
-
-
-    <% end %>
-
-    <script>
-    $('#star').raty({
-      size     : 36,
-      starOff:  '<%= asset_path('star-off.png') %>',
-      starOn : '<%= asset_path('star-on.png') %>',
-      scoreName: 'review[star]'
-    });
-    </script>
-</body>
+    <div class="user_movies">過去の投稿
+      <div class="movie-container">
+        <% @user_movies.each do |m| %><hr>
+        <%= m.title %><br>
+        <%= m.created_at %><br>
+        <%= m.subject %><br>
+        <%= m.unit %><br>
+        <iframe src="https://www.youtube.com/embed/<%= m.link %>" width="280" height="152">
+          </iframe><br>
+          <%= link_to "詳細", movie_path(m.id) %>
+          <% end %>
+        </div>
+    </div>
+  </body>
 </html>
