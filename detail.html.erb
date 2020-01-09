@@ -2,11 +2,11 @@
 <!-- 投稿の詳細を見たりコメントできる -->
 <head>
   <meta charset="utf-8">
-  <% @page_title = "top" %>
+  <link rel="stylesheet" type="text/css" href="./detail.css.css">
 </head>
 <body>
   <div class="header">
-    <h1>Categolearnig&#x270f;<span>～学習動画投稿＆再生サイト～</span></h1>
+    <h1>Categolearning&#x270f;<span>～学習動画投稿＆再生サイト～</span></h1>
   </div>
 
   <div class="menu">
@@ -20,7 +20,8 @@
  <div class="movie-show">
    <div class="detail">投稿者：<%= @movie.user.name %><br>投稿時間：<%= @movie.created_at %><br>
      教科：<%= @movie.subject %>　　単元：<%= @movie.unit %></div>
-   <iframe src="https://www.youtube.com/embed/<%= @movie.link %>" width="560" height="315"></iframe>
+   <div class="movie"><iframe src="https://www.youtube.com/embed/<%= @movie.link %>" width="560" height="315">
+   </iframe></div>
    <span id="movie-<%= @movie.id %>-like">
      <%= render 'likes/like',movie: @movie, like: @like %>
    </span>
@@ -29,6 +30,7 @@
 
    <div class="comments">
      <div>コメント</div>
+     <textarea cols="80" rows="8"></textarea>
      <% @comments.each do |c| %>
      <div>
        <%= c.user.name %>：<%= c.body %><hr>
