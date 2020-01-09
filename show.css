@@ -1,0 +1,77 @@
+body {
+  font-family: Impact;
+}
+li {
+  list-style: none;
+  float: left;
+  padding: 33px 20px
+}
+
+.header {
+  background-color: #40e0d0;
+  color: white;
+  height: 80px;
+  display: table;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+.header-logo {
+  display: table-cell;
+  width:auto;
+  font-family: cursive;
+  float: left;
+  font-size: 60px;
+  padding: 0px 0px;
+}
+
+.username{
+  display: table-cell;
+  width: auto;
+  font-size: 30px;
+}
+
+
+
+.header2{
+  background-color: #40e0d0;
+  color: white;
+  height: 80px;
+  display: table;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+
+.header2-main{
+  display: table-cell;
+  width: auto;
+  font-size: 50px;
+}
+
+.header-list {
+  display: table-cell;
+  float: right;
+  font-size: 30px;
+}
+
+.container{
+  display: table;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+
+.box1{
+  display: table-cell;
+  width: 30%;
+}
+
+.box2{
+  display: table-cell;
+  width: 70%;
+}
+
+.title{
+  font-size: 20px;
+}

@@ -1,29 +1,55 @@
 <!DOCTYPE html>
-<html lang="ja">
 <head>
   <meta charset="utf-8">
   <% page_title = "Home" %>
+  <link rel="stylesheet" type="text/css" href="./show.css">
 </head>
 <body>
-  <div class="current_user">
+<div class="header">
+  <div class="header-logo">Categolearnig&#x270f;</div>
+  <div class="username">
+    <img src="niconico1.jpg" width="50" height="40">
     <%= @user.name %><br>
     <%= @user.status %><br>
-    <%= link_to 'プロフィール編集',  edit_user_registration_path %><br>
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %><br>
-    <%= link_to 'アップロード', new_movie_path %>
-    </div>
-    <div class="user_movies">過去の投稿
-      <div class="movie-container">
-        <% @user_movies.each do |m| %><hr>
-        <%= m.title %><br>
-        <%= m.created_at %><br>
-        <%= m.subject %><br>
-        <%= m.unit %><br>
-        <iframe src="https://www.youtube.com/embed/<%= m.link %>" width="280" height="152">
-          </iframe><br>
-          <%= link_to "詳細", movie_path(m.id) %>
-          <% end %>
-        </div>
-    </div>
-  </body>
+  </div>
+</div>
+<!--ユーザーデータ取り込みお願いします-->
+<div class="header2">
+  <div class="header2-main">個人ページ</div>
+  <div class="header-list">
+    <%= link_to 'プロフィール編集',  edit_user_registration_path %>&emsp;
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>&emsp;
+    <%= link_to 'アップロード', new_movie_path %>&emsp;
+  </div>
+</div>
+<div class="container">
+<div class="box1">
+  <div class="history">
+    <img src="history.jpg" width="50" height="50">
+    <a href="history.html">視聴履歴</a>
+  </div>
+  <div class="favorite">
+    <img src="favorite2.jpg" width="40" height="40">
+    <a href="favorite_movie.html">お気に入り</a>
+  </div>
+  <div class="list_upload">
+    <img src="tape.jpg" width="40" height="40">
+    <a href="list_upload.html">過去の投稿</a>
+  </div>
+</div>
+
+<div class="box2">
+  <div class="movie-container">
+    <% @user_movies.each do |m| %><hr>
+    <div class="title"><%= m.title %></div><br>
+    <div class="time"><%= m.created_at %></div><br>
+    <div class="subject"><%= m.subject %>&emsp;<%= m.unit %></div><br>
+    <iframe src="https://www.youtube.com/embed/<%= m.link %>" width="280" height="152">
+    </iframe><br>
+    <div class="link-detail"><%= link_to "詳細", movie_path(m.id) %></div>
+    <% end %>
+  </div>
+</div>
+</div>
+</body>
 </html>
