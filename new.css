@@ -1,0 +1,78 @@
+
+li {
+  list-style: none;
+  float: left;
+  padding: 33px 20px
+}
+.header {
+  background-color: #40e0d0;
+  color: white;
+  height: 80px;
+  display: table;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+.header-logo {
+  display: table-cell;
+  width:auto;
+  font-family: cursive;
+  float: left;
+  font-size: 60px;
+  padding: 0px 0px;
+}
+
+.username{
+  display: table-cell;
+  width: auto;
+  font-size: 30px;
+}
+
+
+
+.header2{
+  background-color: #40e0d0;
+  color: white;
+  height: 80px;
+  display: table;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+
+.header2-main{
+  display: table-cell;
+  width: auto;
+  font-size: 50px;
+}
+
+.title{
+  font-family: 'Yu Gothic UI';
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.container{
+  display: table;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+}
+
+.box1{
+  display: table-cell;
+  width: 30%;
+}
+
+.box2{
+  display: table-cell;
+  width: 70%;
+}
+
+h4{
+  font-size: 25px;
+  border-left :solid 5px #40e0d0;
+  border-bottom: solid 1px gray;
+  /*余白をつけておきます*/
+  padding: 10px;
+}
